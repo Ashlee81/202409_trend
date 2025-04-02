@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ============== 輪播css ============== -->
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/swiper.min.css" />
+  <!-- ============== 共用css ============== -->
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/animate.min.css" />
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/generate_v1.5.7.css"/>
+  <link rel="stylesheet" href="https://media.etmall.com.tw/sp/12500/build.css" />
+    
+  <!-- [電梯步驟1] 電梯CSS 不用就關掉 -->
+  <!-- 商品左電梯CSS，要使用還要在步驟2開啟左電梯data資料 -->
+  <!-- <link id="localElevatorLeft" rel="stylesheet" href="sp-elevator-left.css"> -->
+
+  <!-- 商品右電梯CSS，步驟2有測試div可以測試 -->
+  <link id="localElevatorRight" rel="stylesheet" href="sp-elevator-right.css" />
+  <!-- [電梯步驟1] 電梯CSS END -->
+
+  <style>
+
+    body {
+      background-color: #fbfaf6;
+      /* width: 100vw; */
+    }
+
+    body:before {
+      background: url(bg-m.jpg) center 0 no-repeat;
+      background-size: 100%;
+      /* width: 100vw; */
+    }
+
+    @media screen and (min-width: 960px) {
+      body:before {
+        background: url(bg.jpg) center 0 no-repeat;
+        background-size: auto;
+      }
+    }
+    /* 調整logo位置大小 */
+    .logo{  
+      top: 0vw;
+      left: 1vw;
+      width: 19%;
+    }
+
+
+    /* 調整大網logo */
+    @media screen and (min-width:960px){
+      .logo{  
+        position: absolute;
+        top: 0px;
+        left: calc(50% - 480px);
+        width: 30%;
+        max-width: 200px; 
+      }
+    }
+
+    /* 動畫物件 */
+    .sp__wallper{
+      overflow: hidden;
+    }
+    /*-- 手機版：設定物件距離左邊與上邊的位置，單位可以使用"%"或"vw";width:建議電腦版可以使用auto，手機版則可使用%調整 --*/
+    .animate__obj--tt {
+      position: absolute;
+      z-index: 1;
+      top: 21vw;
+      left: 4%;
+      width: 57%;
+      -webkit-animation: flicker-in-1 1.5s linear both;
+    }
+
+    @-webkit-keyframes flicker-in-1 {
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 0;
+        }
+        10.1% {
+          opacity: 1;
+          filter: blur(5px) brightness(150%);
+        }
+        10.2% {
+          opacity: 0;
+        }
+        20% {
+          opacity: 0;
+        }
+        20.1% {
+          opacity: 1;
+          filter: blur(5px) brightness(150%);
+        }
+        20.6% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 0;
+        }
+        30.1% {
+          opacity: 1;
+          filter: blur(5px) brightness(150%);
+        }
+        30.5% {
+          opacity: 1;
+          filter: blur(5px) brightness(150%);
+        }
+        30.6% {
+          opacity: 0;
+        }
+        45% {
+          opacity: 0;
+        }
+        45.1% {
+          opacity: 1;
+          filter: blur(5px) brightness(150%);
+        }
+        50% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        55% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        55.1% {
+          opacity: 0;
+        }
+        57% {
+          opacity: 0;
+        }
+        57.1% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        60% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        60.1% {
+          opacity: 0;
+        }
+        65% {
+          opacity: 0;
+        }
+        65.1% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        75% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        75.1% {
+          opacity: 0;
+        }
+        77% {
+          opacity: 0;
+        }
+        77.1% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        85% {
+          opacity: 1;
+          filter: blur(3px) brightness(150%);
+        }
+        85.1% {
+          opacity: 0;
+        }
+        86% {
+          opacity: 0;
+        }
+        86.1% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    .animate__obj--star1 {
+      position: absolute;
+      z-index: 1;
+      top: 26vw;
+      left: 82%;
+      width: 10%;
+      -webkit-animation: star 1s infinite ease-in-out alternate both;
+    }
+    .animate__obj--star2 {
+      position: absolute;
+      z-index: 1;
+      top: 34vw;
+      left: 86%;
+      width: 5%;
+      -webkit-animation: star 1s infinite ease-in-out alternate both;
+    }
+    @-webkit-keyframes star {
+      0%{
+        transform: scale(0.8);
+      }
+      100%{
+        transform: scale(1.2);
+      }
+
+    }
+    .animate__obj--shoe {
+      position: absolute;
+      z-index: 1;
+      top: 68vw;
+      left: 13%;
+      width: 0%;
+    }
+    .animate__obj--stcR {
+      position: absolute;
+      z-index: 1;
+      top: 68vw;
+      left: 13%;
+      width: 0%;
+    }
+    .animate__obj--back {
+      position: absolute;
+      z-index: 1;
+      top: 68vw;
+      left: 13%;
+      width: 0%;
+    }
+    .animate__obj--stcL {
+      position: absolute;
+      z-index: 1;
+      top: 68vw;
+      left: 13%;
+      width: 0%;
+    }
+    .animate__obj--letter {
+      position: absolute;
+      z-index: 1;
+      top: 68vw;
+      left: 13%;
+      width: 0%;
+    }
+
+    /*-- 電腦版：設定物件距離左邊與上邊的位置，單位可以使用"px"，左邊可以挑整clac()後面的px值;width:建議電腦版可以使用auto，手機版則可使用%調整 --*/
+    @media screen and (min-width:960px) {
+      .animate__obj--tt {
+        top: 187px;
+        left: calc(50% - 455px);
+        width: auto;
+        cursor: pointer;
+      }
+      .animate__obj--star1 {
+        top: 240px;
+        left: calc(50% - -310px);
+        width: auto;
+        pointer-events: none;
+      }
+      .animate__obj--star2 {
+        top: 318px;
+        left: calc(50% - -331px);
+        width: auto;
+        pointer-events: none;
+        transform: scale(0.6);
+      }
+
+      .animate__obj--shoe {
+        top: 315px;
+        left: calc(50% - -565px);
+        width: auto;
+        pointer-events: none;
+        position: fixed;
+        filter: drop-shadow(2px 4px 10px rgb(16, 14, 70));
+        z-index: 1;
+      }
+      .animate__obj--stcR {
+        top: 232px;
+        left: calc(50% - -535px);
+        width: auto;
+        pointer-events: none;
+        position: fixed;
+        z-index: 0;
+        animation: rotate 15s infinite linear both;
+      }
+      @keyframes rotate {
+        0%{
+          transform: rotate(0deg);
+        }
+        100%{
+          transform: rotate(-359deg);
+        }
+      }
+      .animate__obj--back {
+        top: 662px;
+        left: calc(50% - 827px);
+        width: auto;
+        pointer-events: none;
+        position: fixed;
+        filter: drop-shadow(2px 4px 10px rgb(198, 67, 7));
+        z-index: 1;
+      }
+      .animate__obj--stcL {
+        top: 640px;
+        left: calc(50% - 903px);
+        width: auto;
+        pointer-events: none;
+        position: fixed;
+        z-index: 0;
+        animation: rotate2 15s infinite linear both;
+      }
+      @keyframes rotate2 {
+        0%{
+          transform: rotate(0deg);
+        }
+        100%{
+          transform: rotate(359deg);
+        }
+      }
+      
+      .animate__obj--letter {
+        top: 324px;
+        left: calc(50% - 875px);
+        width: auto;
+        pointer-events: none;
+        position: fixed;
+        z-index: 0;
+      }
+    }
+
+
+    /* --- 滑動Banner start --- */
+    .slider__wrap {
+      /* 輪播的父層 */
+      z-index: 0;
+    }
+
+    .slider__wrap .swipersty__banner {
+      position: absolute;
+      z-index: 0;
+      top: 25%;
+      left: 10%;
+      width: 80%;
+    }
+    /* --- 滑動Banner end --- */
+
+
+  </style>
+
+</head>
+
+  <body class="bg-fixed">
+
+    <div class="navRightBar" id="navRightBar"></div>
+    <div class="elevatorHome js--main--dialog" id="elevatorHome"></div>
+    <div id="barHome"></div>
+    <div class="home--icon layout--main" id="iconHome"></div>
+
+    
+    <div class="sp__wrap" id="spWrap">
+
+      <!-- logo -->
+      <div class="logo">
+        <a href="https://www.etmall.com.tw/">
+          <img src="ehs-logo.png" alt="東森購物">
+        </a>
+      </div>
+
+      <!-- 動畫小物件 -->
+      <div class="animate__obj--tt animate__animated">
+        <a href="https://www.etmall.com.tw/gp/270057">
+          <img src="ani-tt.png" alt="運動潮流大賞">
+        </a>
+      </div>
+      <div class="animate__obj--star1 animate__animated"><img src="ani-star.png" alt=""></div>
+      <div class="animate__obj--star2 animate__animated"><img src="ani-star2.png" alt=""></div>
+
+      <div class="animate__obj--shoe animate__animated"><img src="ani-shoesR.png" alt=""></div>
+      <div class="animate__obj--stcR animate__animated"><img src="ani-stickerR.png" alt=""></div>
+      <div class="animate__obj--back animate__animated"><img src="ani-backL.png" alt=""></div>
+      <div class="animate__obj--stcL animate__animated"><img src="ani-stickerL.png" alt=""></div>
+      <div class="animate__obj--letter animate__animated"><img src="ani-letter.png" alt=""></div>
+
+      <!-- 版頭主視覺 -->
+      <main class="sp__main" >
+        <section class="sp__visual">
+          <div class="layout--main">
+            <ul class="visual--auto clearfix">
+              <li class="visual__fragment width--auto"><img src="index_01.png" alt=""></li>
+              <li class="visual__fragment width--auto"><img src="index_02.png" alt=""></li>
+              <!-- 誘因 -->
+              <li class="visual__fragment width--auto"><img src="index_03.png" alt="潮流小物滿贈抽bar"></li>
+              <li class="visual__fragment width--auto"><a href="#"><img src="index_04.png" alt="下單即可抽 asics運動襪，共5名"></a></li>
+              <li class="visual__fragment width--auto"><a href="#"><img src="index_05.png" alt="單筆訂單滿$1010，抽 adidas運動臂帶，共10名"></a></li>
+              <li class="visual__fragment width--auto"><a href="#"><img src="index_06.png" alt="單筆訂單滿$2,010，抽 puma、adidas運動包/帽，共8名，隨機贈送"></a></li>
+              <!-- 熱銷大牌 -->
+              <li class="visual__fragment width--auto"><img src="index_07.png" alt="熱銷大牌bar"></li>
+              <li class="visual__fragment width--auto"><a href="https://www.etmall.com.tw/gp/270059"><img src="index_08.png" alt="Nike"></a></li>
+              <li class="visual__fragment width--auto"><a href="https://www.etmall.com.tw/gp/270060"><img src="index_09.png" alt="NB"></a></li>
+              <li class="visual__fragment width--auto"><a href="https://www.etmall.com.tw/gp/270061"><img src="index_10.png" alt="愛迪達 "></a></li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  <!-- ============== 共用JS ============== -->
+  <script src="https://media.etmall.com.tw/sp/12500/jquery-3.6.0.min.js"></script>
+  <script src="https://media.etmall.com.tw/sp/12500/swiper.min.js"></script>
+  <script src="https://media.etmall.com.tw/sp/12500/generate_v1.5.7.js"></script>
+  <!--[電梯步驟2] 電梯 JS -->
+  <!-- 商品左電梯單機版資料，不用就關掉，要使用還要上方步驟1開啟商品左電梯CSS -->
+  <!-- <script id="dataElevatorLeft" src="data-elevator.js"></script> -->
+
+  <!-- 線上自動切換電梯，無論如何都要有 -->
+  <script id="checkElevator" src="https://media.etmall.com.tw/sp/11911/check-elevator.js"></script>
+  <!-- [電梯步驟2] 電梯 JS END -->
+
+  <!-- [測試區] -->
+  <!-- 測試商品右電梯用，上線前必須關掉 -->
+  <!-- <div data-title="ccc"></div> -->
+  <!-- 測試霸道電梯用，開啟時上方自動切換電梯要關閉，這支正式上線時需關閉、上方的要開啟回來 -->
+  <!-- <script id="checkElevator" src="https://media.etmall.com.tw/sp/14841/test-elevator.js?87"></script> -->
+
+
+      <!-- ============== 輪播 start ============== -->
+  <script>
+    var promoSliderItem = new Swiper("#swiperstyBanner", {
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      grabCursor: true,
+      lazy: {
+        loadPrevNext: true,
+      },
+      loop: true,
+      perspective: true,
+      centeredSlides: true,
+      // effect: "flip",
+      // flipEffect: {
+      //   slideShadows: false,
+      // },
+      slidesPerView: 1,
+      speed: 600,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+    });
+
+  </script>
+  <!-- ============== 輪播 end ============== -->
+
+  
+    
+  </body>
+</html>
